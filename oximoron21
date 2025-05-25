@@ -1,3 +1,7 @@
+Book::create([ 
+"title" => "blabla"
+]);
+
 $hats = [
             [
                 'brand' => 'Stetson',

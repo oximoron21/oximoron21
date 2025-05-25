@@ -33,3 +33,22 @@ public function destroy(Hat $hat)
         $hat->delete();
         return response()->json([$hat, 'msg' => "{$hat->brand} sikeresen törölve"]);
     }
+
+
+Jobb klikk az adatbázisra->Properties->Connection
+string property mellett lévő teljes connection stringet másoljuk ki!
+Az összekötéshez nyissuk meg a Package Manager Console.
+1. Parancs – dotnet entityframework feltelepítése: dotnet tool
+install --global dotnet-ef (ha még nincs telepítve)
+2. Parancs - scaffolding: dotnet ef dbcontext scaffold "IDEJÖN
+
+A CONNECTIONSTRING" --context-
+dir MappaNév(Órán:Context) --context
+
+Adatbázisneve(Órán:Database)
+Microsoft.EntityFrameworkCore.SqlServer -o
+Mappanév(Órán:Models)--
+project Projektneve_amivel_összekötöd
+3. Ha olyan hiba üzenetet ír ki hogy hogy nem látja a projectet,
+akkor a konzolban cd projektneve és utána futtassuk a
+parancsot a –project Projektneve paraméter nélkül

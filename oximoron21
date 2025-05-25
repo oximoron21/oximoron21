@@ -40,6 +40,9 @@ string property mellett lévő teljes connection stringet másoljuk ki!
 Az összekötéshez nyissuk meg a Package Manager Console.
 1. Parancs – dotnet entityframework feltelepítése: dotnet tool
 install --global dotnet-ef (ha még nincs telepítve)
+
+dotnet ef dbcontext scaffold "" --context-dir Context --context ProductContext Microsoft.EntityFrameworkCore.SqlServer -o Models --project databaseproject
+
 2. Parancs - scaffolding: dotnet ef dbcontext scaffold "IDEJÖN
 
 A CONNECTIONSTRING" --context-

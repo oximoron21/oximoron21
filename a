@@ -1,0 +1,27 @@
+Book::create([ 
+"title" => "blabla"
+]);
+
+$hats = [
+            [
+                'brand' => 'Stetson',
+                'type' => 'Cowboy kalap',
+                'size' => '59',
+                'color' => 'Barna',
+            ],
+        ];
+        foreach($hats as $value) { Hat::create($value); }
+
+Route::resource('/hats', HatController::class);
+
+index - $hats = Hat::all();
+return response()->json([$hats, "msg" => "Lekérés sikeresen megtörtént"]);
+create - $hat = Hat::create($request->all());
+return response()->json([$hat, 'msg' => "{$hat->brand} sikeresen hozzáadva"]);
+update - $hat->update($request->all());
+return response()->json([$hat, "msg" => "{$hat->brand} frissítése sikeresen megtörtént"]);
+destroy - $hat->delete();
+return response()->json([$hat, 'msg' => "{$hat->brand} sikeresen törölve"]);
+
+install --global dotnet-ef
+dotnet ef dbcontext scaffold "" --context-dir Context --context ProductContext Microsoft.EntityFrameworkCore.SqlServer -o Models --project databaseproject

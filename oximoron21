@@ -1,0 +1,35 @@
+$hats = [
+            [
+                'brand' => 'Stetson',
+                'type' => 'Cowboy kalap',
+                'size' => '59',
+                'color' => 'Barna',
+            ],
+        ];
+        foreach($hats as $value) { Hat::create($value); }
+
+Route::resource('/hats', HatController::class);
+
+public function index()
+    {
+        $hats = Hat::all();
+        return response()->json([$hats, "msg" => "Lekérés sikeresen megtörtént"]);
+    }
+
+public function store(StoreHatRequest $request)
+    {
+        $hat = Hat::create($request->all());
+        return response()->json([$hat, 'msg' => "{$hat->brand} sikeresen hozzáadva"]);
+    }
+
+public function update(UpdateHatRequest $request, Hat $hat)
+    {
+        $hat->update($request->all());
+        return response()->json([$hat, "msg" => "{$hat->brand} frissítése sikeresen megtörtént"]);
+    }
+
+public function destroy(Hat $hat)
+    {
+        $hat->delete();
+        return response()->json([$hat, 'msg' => "{$hat->brand} sikeresen törölve"]);
+    }

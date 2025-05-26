@@ -25,5 +25,7 @@ return response()->json([$hat, 'msg' => "{$hat->brand} sikeresen törölve"]);
 
 rules - 'developer' => 'required|string|max:255',
 
+modelbe - use SoftDeletes;
+
 install --global dotnet-ef
 dotnet ef dbcontext scaffold "" --context-dir Context --context ProductContext Microsoft.EntityFrameworkCore.SqlServer -o Models --project databaseproject
